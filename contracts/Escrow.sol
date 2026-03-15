@@ -1,11 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.21;
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-
 /// @title Freelance Escrow Contract
 /// @notice Holds funds between client and freelancer with dispute resolution
-contract Escrow is ReentrancyGuard {
+contract Escrow {
+
+    // ─── Reentrancy guard ────────────────────────────────────────
+    bool private locked;
+    modifier nonReentrant() {
+        require(!locked, "Reentrant call");
+        locked = true;
+        _;
+        locked = false;
+    }
 
     // ─── State machine ───────────────────────────────────────────
     enum State {
@@ -142,7 +149,7 @@ contract Escrow is ReentrancyGuard {
         }
     }
 
-    /// @notice Returns the contract's current ETH balance
+    /// @notice Returns the contract ETH balance
     function getBalance() external view returns (uint256) {
         return address(this).balance;
     }

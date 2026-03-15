@@ -1,10 +1,12 @@
 const EscrowFactory = artifacts.require("EscrowFactory");
 
-module.exports = function (deployer, network, accounts) {
-  // accounts[0] = client (deployer)
-  // accounts[1] = freelancer
-  // accounts[2] = arbitrator
+module.exports = async function (deployer, network, accounts) {
   const arbitrator = accounts[2];
-
-  deployer.deploy(EscrowFactory, arbitrator);
+  
+  console.log("Deploying with arbitrator:", arbitrator);
+  
+  await deployer.deploy(EscrowFactory, arbitrator);
+  
+  const factory = await EscrowFactory.deployed();
+  console.log("EscrowFactory deployed at:", factory.address);
 };
