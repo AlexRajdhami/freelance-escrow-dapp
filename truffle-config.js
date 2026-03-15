@@ -3,10 +3,12 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
   networks: {
-   development: {
+  development: {
   host: "127.0.0.1",
   port: 7545,
-  network_id: "5777",  // match Ganache exactly
+  network_id: "5777",
+  gas: 6721975,
+  gasPrice: 20000000000,
 },
     sepolia: {
       provider: () => new HDWalletProvider(
@@ -25,14 +27,16 @@ module.exports = {
   },
 
   compilers: {
-    solc: {
-      version: "0.8.21",
-      settings: {
-        optimizer: {
-          enabled: true,
-          runs: 200
-        }
-      }
+  solc: {
+    version: "0.8.21",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      },
+      evmVersion: "london"
     }
+  }
+
   }
 };
