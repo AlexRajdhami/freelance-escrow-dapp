@@ -3,3 +3,4 @@ echo "node_modules/
 build/" > .gitignore
 git add .gitignore
 git commit -m "add gitignore"
+node_modules
