@@ -54,8 +54,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -74,8 +73,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -112,8 +110,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -126,8 +123,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_arbitrator\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"escrowAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"client\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"freelancer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"jobDescription\",\"type\":\"string\"}],\"name\":\"EscrowCreated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"arbitrator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_freelancer\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_jobDescription\",\"type\":\"string\"}],\"name\":\"createEscrow\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"escrowContracts\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllEscrows\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEscrowCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"createEscrow(address,string)\":{\"params\":{\"_freelancer\":\"Address of the freelancer\",\"_jobDescription\":\"Description of the job\"},\"returns\":{\"_0\":\"Address of the newly deployed Escrow contract\"}}},\"title\":\"Escrow Factory Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"createEscrow(address,string)\":{\"notice\":\"Creates a new Escrow contract\"},\"getAllEscrows()\":{\"notice\":\"Returns all deployed escrow contract addresses\"},\"getEscrowCount()\":{\"notice\":\"Returns total number of escrows created\"}},\"notice\":\"Deploys and tracks individual Escrow contracts\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/EscrowFactory.sol\":\"EscrowFactory\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Escrow.sol\":{\"keccak256\":\"0x1cc7861d1770dc01c739f7d84af2f4bb41ac3764d383d27b774908214589f968\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cb2d4a627c553d9393fe54a04bb4cb87b8de1daaeb71c7ac860ac02c3a7e7a29\",\"dweb:/ipfs/QmRfZ7vmvZDuc8GTNtazuBvGPLdqCWVaHLZuybXzQtq3Z6\"]},\"project:/contracts/EscrowFactory.sol\":{\"keccak256\":\"0xccbcf7bc52b8fadb582f68c1b516836a59690ec21003ca8df44f2abf6b9ffd30\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9f189f7e3ad271d989615d34021dc6a529d3c3f0e0011b0d32cddfa571052767\",\"dweb:/ipfs/QmdFui4ShbJh3A89BxPGyAuSxRTobYnHpTwY9gvHVqnU4p\"]}},\"version\":1}",
@@ -5612,8 +5608,7 @@
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2026-03-16T23:14:26.380Z",
-  "networkType": "ethereum",
+  "updatedAt": "2026-03-19T11:16:38.165Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
