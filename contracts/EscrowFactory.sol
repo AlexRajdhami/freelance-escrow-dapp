@@ -19,13 +19,13 @@ contract EscrowFactory {
         string jobDescription
     );
 
-    // ─── Constructor ─────────────────────────────────────────────
+    // ─── Constructor ────────────────────────────────────────────
     constructor(address _arbitrator) {
         require(_arbitrator != address(0), "Invalid arbitrator address");
         arbitrator = _arbitrator;
     }
 
-    // ─── Functions ───────────────────────────────────────────────
+    // ─── Functions ──────────────────────────────────────────────
 
     /// @notice Creates a new Escrow contract
     /// @param _freelancer Address of the freelancer
@@ -36,6 +36,7 @@ contract EscrowFactory {
         string memory _jobDescription
     ) external returns (address) {
         Escrow newEscrow = new Escrow(
+            msg.sender,
             _freelancer,
             arbitrator,
             _jobDescription

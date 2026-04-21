@@ -62,15 +62,17 @@ contract Escrow {
 
     // ─── Constructor ─────────────────────────────────────────────
     constructor(
+        address _client,
         address _freelancer,
         address _arbitrator,
         string memory _jobDescription
     ) {
+        require(_client != address(0), "Invalid client address");
         require(_freelancer != address(0), "Invalid freelancer address");
         require(_arbitrator != address(0), "Invalid arbitrator address");
-        require(_freelancer != msg.sender, "Client cannot be freelancer");
+        require(_freelancer != _client, "Client cannot be freelancer");
 
-        client         = msg.sender;
+        client         = _client;
         freelancer     = _freelancer;
         arbitrator     = _arbitrator;
         jobDescription = _jobDescription;
@@ -81,10 +83,10 @@ contract Escrow {
 
     /// @notice Client deposits ETH to fund the escrow
     function deposit()
-        external
-        payable
-        onlyClient
-        inState(State.AWAITING_PAYMENT)
+    external
+    payable
+    onlyClient
+    inState(State.AWAITING_PAYMENT)
     {
         require(msg.value > 0, "Deposit must be greater than 0");
         amount = msg.value;
@@ -94,19 +96,19 @@ contract Escrow {
 
     /// @notice Freelancer marks work as submitted
     function submitWork()
-        external
-        onlyFreelancer
-        inState(State.AWAITING_DELIVERY)
+    external
+    onlyFreelancer
+    inState(State.AWAITING_DELIVERY)
     {
         emit WorkSubmitted(msg.sender);
     }
 
     /// @notice Client approves work and releases funds to freelancer
     function releaseFunds()
-        external
-        onlyClient
-        inState(State.AWAITING_DELIVERY)
-        nonReentrant
+    external
+    onlyClient
+    inState(State.AWAITING_DELIVERY)
+    nonReentrant
     {
         currentState = State.COMPLETE;
         uint256 payout = amount;
@@ -118,9 +120,9 @@ contract Escrow {
 
     /// @notice Client raises a dispute
     function raiseDispute()
-        external
-        onlyClient
-        inState(State.AWAITING_DELIVERY)
+    external
+    onlyClient
+    inState(State.AWAITING_DELIVERY)
     {
         currentState = State.DISPUTED;
         emit DisputeRaised(msg.sender);
@@ -128,10 +130,10 @@ contract Escrow {
 
     /// @notice Arbitrator resolves dispute — true = pay freelancer, false = refund client
     function resolveDispute(bool _releaseToFreelancer)
-        external
-        onlyArbitrator
-        inState(State.DISPUTED)
-        nonReentrant
+    external
+    onlyArbitrator
+    inState(State.DISPUTED)
+    nonReentrant
     {
         uint256 payout = amount;
         amount = 0;

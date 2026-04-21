@@ -1,6 +1,57 @@
-echo "node_modules/
+# === Dependencies ===
+node_modules/
+frontend/node_modules/
+
+# === Environment Variables (SECURITY CRITICAL) ===
 .env
-build/" > .gitignore
-git add .gitignore
-git commit -m "add gitignore"
-node_modules
+.env.local
+.env*.local
+*.env
+
+# === Build Outputs ===
+build/
+frontend/build/
+dist/
+frontend/dist/
+artifacts/
+cache/
+contracts/artifacts/
+contracts/cache/
+
+# === IDE / Editor ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.log
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Testing & Coverage ===
+coverage/
+frontend/coverage/
+*.lcov
+.nyc_output/
+
+# === Blockchain Specific ===
+*.abi
+*.bin
+truffle-contract.js
+*.dbg.json
+
+# === IPFS / Temp ===
+ipfs-data/
+.pin-set
+*.ipfs
+
+# === Documentation ===
+*.pdf
+*.docx
+*.pages

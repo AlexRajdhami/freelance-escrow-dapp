@@ -1,17 +1,28 @@
 {
   "name": "freelance-escrow-dapp",
   "version": "1.0.0",
+  "description": "Freelance escrow DApp with Truffle smart contracts and a React frontend",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sync:artifacts": "node scripts/sync-artifacts.js",
+    "compile": "frontend\\node_modules\\.bin\\truffle.cmd compile && node scripts/sync-artifacts.js",
+    "migrate": "frontend\\node_modules\\.bin\\truffle.cmd migrate --network ganache --reset && node scripts/sync-artifacts.js",
+    "migrate:ganache": "frontend\\node_modules\\.bin\\truffle.cmd migrate --network ganache --reset && node scripts/sync-artifacts.js",
+    "migrate:development": "frontend\\node_modules\\.bin\\truffle.cmd migrate --network development --reset && node scripts/sync-artifacts.js",
+    "test": "frontend\\node_modules\\.bin\\truffle.cmd test",
+    "frontend:start": "frontend\\node_modules\\.bin\\react-scripts.cmd start",
+    "frontend:build": "frontend\\node_modules\\.bin\\react-scripts.cmd build",
+    "frontend:test": "frontend\\node_modules\\.bin\\react-scripts.cmd test --watchAll=false",
+    "lint:contracts": "node_modules\\.bin\\solhint.cmd contracts/*.sol",
+    "lint:frontend": "frontend\\node_modules\\.bin\\eslint.cmd frontend\\src --ext .js,.jsx",
+    "quality": "npm run lint:contracts && npm run lint:frontend"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@openzeppelin/contracts": "^5.6.1",
     "dotenv": "^17.3.1"
