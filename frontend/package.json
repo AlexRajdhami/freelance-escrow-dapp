@@ -7,16 +7,20 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "dotenv": "^17.4.2",
     "ethers": "^6.16.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-scripts": "5.0.1",
+    "truffle": "^5.11.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src --ext .js,.jsx",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,5 +46,10 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
     "prettier": "^3.8.1"
-  }
+  },
+  "description": "React frontend for the Freelance Escrow DApp.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
